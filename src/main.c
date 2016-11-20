@@ -13,6 +13,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits changed) {
 }
 
 void init() {
+  locale_init();
   data_init();
   health_init();
 

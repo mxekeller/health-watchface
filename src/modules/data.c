@@ -67,13 +67,7 @@ static void update_average(AverageType type) {
 }
 
 void data_update_steps_buffer() {
-  int thousands = s_current_steps / 1000;
-  int hundreds = s_current_steps % 1000;
-  if(thousands > 0) {
-    snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer), "%d,%03d", thousands, hundreds);
-  } else {
-    snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer), "%d", hundreds);
-  }
+  snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer), "%d", s_current_steps);
 
   main_window_redraw();
 }
@@ -98,9 +92,9 @@ void data_init() {
   // Load resources
   s_green_shoe = gbitmap_create_with_resource(RESOURCE_ID_GREEN_SHOE_LOGO);
   s_blue_shoe = gbitmap_create_with_resource(RESOURCE_ID_BLUE_SHOE_LOGO);
-  s_font_small = fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD);
+  s_font_small = fonts_get_system_font(FONT_KEY_LECO_20_BOLD_NUMBERS);
   s_font_med = fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD);
-  s_font_big = fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK);
+  s_font_big = fonts_get_system_font(FONT_KEY_LECO_38_BOLD_NUMBERS); //FONT_KEY_BITHAM_42_BOLD);
 
   // First time persist
   if(!persist_exists(AppKeyCurrentSteps)) {

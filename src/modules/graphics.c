@@ -233,10 +233,12 @@ void graphics_draw_steps_value(GContext *ctx, GRect bounds, GColor color, GBitma
   steps_text_box.size = GSize(text_width, font_height);
   const int combined_width = shoe_bitmap_box.size.w + padding + text_width;
 
+  const int offset = 25;
+  const int offset2 = 1;
   steps_text_box.origin.x = (bounds.size.w / 2) - (combined_width / 2);
-  steps_text_box.origin.y = PBL_IF_RECT_ELSE(56, 60);
+  steps_text_box.origin.y = PBL_IF_RECT_ELSE(56 - offset - offset2, 60 - offset - offset2);
   shoe_bitmap_box.origin.x = (bounds.size.w / 2) + (combined_width / 2) - shoe_bitmap_box.size.w;
-  shoe_bitmap_box.origin.y = PBL_IF_RECT_ELSE(60, 65);
+  shoe_bitmap_box.origin.y = PBL_IF_RECT_ELSE(60 - offset, 65 - offset);
 
   graphics_context_set_text_color(ctx, color);
   graphics_draw_text(ctx, steps_buffer, data_get_font(FontSizeSmall), 
