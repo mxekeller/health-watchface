@@ -1,0 +1,42 @@
+{
+    "author": "Mxe",
+    "dependencies": {},
+    "keywords": [],
+    "name": "stride-date",
+    "pebble": {
+        "capabilities": [
+            "health"
+        ],
+        "displayName": "Stride Date",
+        "enableMultiJS": false,
+        "messageKeys": {
+            "dummy": 0
+        },
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/green_shoe.png",
+                    "name": "GREEN_SHOE_LOGO",
+                    "type": "png"
+                },
+                {
+                    "file": "images/blue_shoe.png",
+                    "name": "BLUE_SHOE_LOGO",
+                    "type": "png"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt",
+            "chalk",
+            "diorite"
+        ],
+        "uuid": "3d186838-7685-4081-87cd-0636eafb1843",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "0.1.0"
+}
