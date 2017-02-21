@@ -1,4 +1,5 @@
 # health-watchface
+[![Build Status](https://travis-ci.org/mxekeller/health-watchface.svg?branch=master)](https://travis-ci.org/mxekeller/health-watchface)
 
 ![](screenshots/basalt.png)
 ![](screenshots/chalk.png)
