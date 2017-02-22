@@ -9,8 +9,11 @@ mkdir -p ~/.pebble-sdk
 touch ~/.pebble-sdk/ENABLE_ANALYTICS
 
 # Get the Pebble SDK and toolchain
-PEBBLE_SDK_VER='v' + ${PEBBLE_SDK}
-PEBBLE_SDK_FILE='pebble-sdk-' + ${PEBBLE_SDK} + '-linux64.tar.bz2'
+PEBBLE_SDK_VER='v'
+PEBBLE_SDK_VER+=${PEBBLE_SDK}
+PEBBLE_SDK_FILE='pebble-sdk-'
+PEBBLE_SDK_FILE+=${PEBBLE_SDK}
+PEBBLE_SDK_FILE+='-linux64.tar.bz2'
 if [ ! -d $HOME/pebble-dev/${PEBBLE_SDK_FILE} ]; then
   wget https://github.com/pebble/pebble-tool/releases/download/v${PEBBLE_SDK_VER}/${PEBBLE_SDK_FILE}.tar.bz2
   wget http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk/arm-cs-tools-ubuntu-universal.tar.gz
