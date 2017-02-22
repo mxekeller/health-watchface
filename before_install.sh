@@ -20,7 +20,7 @@ if [ ! -d $HOME/pebble-dev/${PEBBLE_SDK} ]; then
 
   # Extract the SDK
   tar -jxf ${PEBBLE_SDK_FILE}.tar.bz2 -C ~/pebble-dev/
-  mv ${PEBBLE_SDK_FILE} ${PEBBLE_SDK}
+  mv ~/pebble-dev/${PEBBLE_SDK_FILE} ~/pebble-dev/${PEBBLE_SDK}
   # Extract the toolchain
   tar zxf arm-cs-tools-ubuntu-universal.tar.gz -C ~/pebble-dev/${PEBBLE_SDK}
 
