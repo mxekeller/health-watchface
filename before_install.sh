@@ -1,31 +1,26 @@
 #!/bin/bash
+# Install NPM 3
+npm install npm@3 -g
+
 set -e
-echo 'pBuild 1.0'
+echo 'pBuild 1.5'
 echo 'Installing Pebble SDK and its Dependencies...'
 
 cd ~
+
 mkdir -p ~/pebble-dev
 mkdir -p ~/.pebble-sdk
 touch ~/.pebble-sdk/ENABLE_ANALYTICS
 
 # Get the Pebble SDK and toolchain
-PEBBLE_SDK_VER='v'
-PEBBLE_SDK_VER+=${PEBBLE_SDK}
-PEBBLE_SDK_FILE='pebble-sdk-'
-PEBBLE_SDK_FILE+=${PEBBLE_SDK}
-PEBBLE_SDK_FILE+='-linux64'
-if [ ! -d $HOME/pebble-dev/${PEBBLE_SDK_FILE} ]; then
-  wget https://github.com/pebble/pebble-tool/releases/download/${PEBBLE_SDK_VER}/${PEBBLE_SDK_FILE}.tar.bz2
-  wget http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/sdk/arm-cs-tools-ubuntu-universal.tar.gz
+if [ ! -d $HOME/pebble-dev/${PEBBLE_SDK} ]; then
+  wget https://s3.amazonaws.com/assets.getpebble.com/pebble-tool/${PEBBLE_SDK}.tar.bz2
 
   # Extract the SDK
-  tar -jxf ${PEBBLE_SDK_FILE}.tar.bz2 -C ~/pebble-dev/
-  ln -s ~/pebble-dev/${PEBBLE_SDK_FILE} ~/pebble-dev/${PEBBLE_SDK}
-  # Extract the toolchain
-  tar zxf arm-cs-tools-ubuntu-universal.tar.gz -C ~/pebble-dev/${PEBBLE_SDK_FILE}
+  tar -jxf ${PEBBLE_SDK}.tar.bz2 -C ~/pebble-dev/
 
   # Install the Python library dependencies locally
-  cd ~/pebble-dev/${PEBBLE_SDK_FILE}
+  cd ~/pebble-dev/${PEBBLE_SDK}
   virtualenv --no-site-packages .env
   source .env/bin/activate
   pip install -r requirements.txt
